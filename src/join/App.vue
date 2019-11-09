@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-    <img src="./images/logo.png">
     <div>join</div>
   </div>
 </template>
 
 <script>
-import 'common/css/reset.css';
 import Hello from 'components/Hello'
 
 export default {
