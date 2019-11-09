@@ -3,7 +3,7 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var glob = require('glob');
-var entries = getEntry(['./src/module/*.js', './src/module/**/*.js']); // 获得入口js文件
+var entries = getEntry(['./src/*.js', './src/**/*.js']); // 获得入口js文件
 
 var env = process.env.NODE_ENV
 // check env & config/index.js to decide weither to enable CSS Sourcemaps for the
@@ -34,35 +34,35 @@ module.exports = {
   },
   module: {
     loaders: [{
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
+      test: /\.vue$/,
+      loader: 'vue'
+    },
+    {
+      test: /\.js$/,
+      loader: 'babel',
+      include: projectRoot,
+      exclude: /node_modules/
+    },
+    {
+      test: /\.json$/,
+      loader: 'json'
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url',
+      query: {
+        limit: 10000,
+        name: utils.assetsPath('img/[name].[hash:7].[ext]')
       }
+    },
+    {
+      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+      loader: 'url',
+      query: {
+        limit: 10000,
+        name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+      }
+    }
     ]
   },
   vue: {
